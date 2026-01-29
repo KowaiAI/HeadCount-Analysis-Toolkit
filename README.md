@@ -30,36 +30,7 @@ Fast image classification for demographic analysis. When they won't publish the 
 | 📊 **Count** | Aggregate results automatically |
 | 🔄 **Resume** | Pick up where you left off |
 
----
-
-## 🔥 The DC Investigation
-
-> **DC is one of only 4 U.S. jurisdictions that refuses to publish racial data for its sex offender registry.**
->
-> So we scraped 1,066 mugshots and counted ourselves.
-
-### What We Found
-
-| Race | DC Registry | National Avg |
-|:-----|:-----------:|:------------:|
-| Black | **87.6%** | 27% |
-| White | **7.1%** | 72% |
-| Hispanic | 4.3% | — |
-| Asian | 0.4% | — |
-
-### The Disparity
-
-```
-DC Registry:      ██░░░░░░░░░░░░░░░░░░  7% white
-
-National Avg:     ██████████████░░░░░░ 72% white
-```
-
-**10x less white than the national average.**
-
-📄 **[Read the full investigation →](link)**
-
----
+--
 
 ## ⚡ Quick Start
 
@@ -79,8 +50,7 @@ python3 headcount.py
 
 # Count
 cd dc_photos_sorted && for dir in */; do echo "$dir $(ls "$dir" | wc -l)"; done
-```
-
+---
 ---
 
 ## 📦 Installation
