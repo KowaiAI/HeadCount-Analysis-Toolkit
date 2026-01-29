@@ -73,7 +73,7 @@ class HeadCount:
             sys.exit(0)
     
     def print_results(self):
-        """Print category counts"""
+        """Print category counts and total results."""
         print("\n" + "="*40)
         print("RESULTS")
         print("="*40)
@@ -88,7 +88,7 @@ class HeadCount:
         print(f"  total: {total}")
     
     def run(self):
-        """Start the GUI"""
+        """Start the GUI for the HeadCount application."""
         self.root = tk.Tk()
         self.root.title("HeadCount")
         self.root.geometry("650x750")
@@ -118,7 +118,7 @@ class HeadCount:
         self.root.mainloop()
     
     def show_photo(self):
-        """Display current photo"""
+        """Display the current photo and update the status label."""
         if self.current_idx >= len(self.photos_to_sort):
             self.status_label.config(text="\n✓ DONE!\n\nAll photos sorted.")
             self.print_results()
@@ -148,7 +148,13 @@ class HeadCount:
         )
     
     def on_key(self, event):
-        """Handle keypress"""
+        """Handle keypress events for photo sorting.
+        
+        This method processes keypress events to manage photo sorting.  If the 'q' key
+        is pressed, it prints the results and quits the application.  For other keys
+        that correspond to categories, it copies the current photo  to the designated
+        output directory and updates the index to show the next photo.
+        """
         key = event.char.lower()
         
         if key == 'q':
@@ -171,6 +177,15 @@ class HeadCount:
 
 
 def main():
+    """Run the HeadCount image classification application.
+    
+    This function sets up the command-line interface for the HeadCount application,
+    allowing users to specify input and output directories for image
+    classification.  It handles the counting of already-sorted images if the
+    `--count` flag is provided,  and initializes the HeadCount application to
+    process images if the input directory exists.  The function also includes error
+    handling for missing directories.
+    """
     parser = argparse.ArgumentParser(
         description="HeadCount - Fast image classification",
         formatter_class=argparse.RawDescriptionHelpFormatter,
