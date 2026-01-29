@@ -54,7 +54,7 @@ National Avg:     ██████████████░░░░░░ 7
 
 **10x less white than the national average.**
 
-📄 **[Read the full investigation →](link)**
+📄 **[Read the full investigation →](docs/investigation.md)**
 
 ---
 
@@ -62,7 +62,7 @@ National Avg:     ██████████████░░░░░░ 7
 
 ```bash
 # Clone
-git clone https://github.com/[username]/headcount.git && cd headcount
+git clone https://github.com/KowaiAI/headcount.git && cd headcount
 
 # Install
 pip install selenium webdriver-manager requests pillow --break-system-packages
@@ -154,24 +154,33 @@ Opens images in your default viewer. Type + Enter.
 
 ---
 
-## 🗂️ Project Structure
+## 🗂️ Repo Structure
 
 ```
 headcount/
 ├── README.md
+├── LICENSE
+├── requirements.txt
+├── .gitignore
 ├── headcount.py            # GUI sorting tool
 ├── headcount_terminal.py   # Terminal sorting tool
-├── scrapers/
-│   ├── dc_registry.py      # DC sex offender registry
-│   └── template.py         # Template for new scrapers
-├── dc_photos/              # Raw scraped images
-└── dc_photos_sorted/       # Sorted output
-    ├── black/
-    ├── white/
-    ├── hispanic/
-    ├── asian/
-    ├── other/
-    └── skip/
+├── docs/
+│   └── investigation.md    # DC investigation writeup
+└── scrapers/
+    ├── dc_registry.py      # DC sex offender registry scraper
+    └── template.py         # Template for new scrapers
+```
+
+After running the scraper and sorter, you'll have locally:
+```
+dc_photos/                  # Raw scraped images (gitignored)
+dc_photos_sorted/           # Sorted output (gitignored)
+├── black/
+├── white/
+├── hispanic/
+├── asian/
+├── other/
+└── skip/
 ```
 
 ---
@@ -192,24 +201,7 @@ For **defensible research**:
 
 ## 🛠️ Adapting for Other Databases
 
-HeadCount works on any image collection:
-
-```python
-from selenium import webdriver
-import requests
-import os
-
-driver = webdriver.Chrome()
-driver.get("https://public-database.gov/search")
-
-os.makedirs('photos', exist_ok=True)
-
-for i, img in enumerate(driver.find_elements_by_tag_name('img')):
-    src = img.get_attribute('src')
-    resp = requests.get(src, verify=False)
-    with open(f'photos/{i:04d}.jpg', 'wb') as f:
-        f.write(resp.content)
-```
+HeadCount works on any image collection. See `scrapers/template.py` for a starting point.
 
 **Potential applications:**
 - Mugshot databases
@@ -251,5 +243,3 @@ PRs welcome for:
 ---
 
 **HeadCount** · *When they won't publish the data, count it yourself.*
-
-[GitHub](https://github.com/[username]/headcount) · [Twitter](https://twitter.com/[handle]) · [Contact](mailto:[email])
