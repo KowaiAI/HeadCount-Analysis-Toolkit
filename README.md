@@ -54,8 +54,6 @@ National Avg:     ██████████████░░░░░░ 7
 
 **10x less white than the national average.**
 
-📄 **[Read the full investigation →](docs/investigation.md)**
-
 ---
 
 ## ⚡ Quick Start
