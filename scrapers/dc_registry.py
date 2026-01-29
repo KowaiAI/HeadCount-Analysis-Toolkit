@@ -30,6 +30,15 @@ OUTPUT_DIR = "dc_photos"
 
 
 def main():
+    """Scrape and download images from the DC Sex Offender Registry.
+    
+    This function initializes a web driver to navigate to the DC Sex Offender
+    Registry,  scrapes images from the site, and downloads them to a specified
+    output directory.  It handles pagination by clicking the "Show More" button
+    until a set page limit is reached  or no more images are available. The
+    function also manages SSL verification during downloads  and tracks saved image
+    URLs to avoid duplicates.
+    """
     print("""
     ╔═══════════════════════════════════════════════════════════╗
     ║  DC Sex Offender Registry Scraper                         ║

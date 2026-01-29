@@ -24,6 +24,15 @@ DEFAULT_CATEGORIES = {
 
 
 def main():
+    """Run the HeadCount Terminal for sorting images into categories.
+    
+    This function sets up the command-line interface for the HeadCount Terminal,
+    parsing input and output folder paths. It checks for the existence of the input
+    directory, creates necessary output folders, and gathers all image files.  The
+    function then identifies already sorted images and prompts the user to
+    categorize the remaining images, handling user input and file operations
+    throughout the process.
+    """
     parser = argparse.ArgumentParser(description="HeadCount Terminal - No GUI image sorting")
     parser.add_argument('--input', '-i', default=DEFAULT_INPUT, help="Input folder")
     parser.add_argument('--output', '-o', default=DEFAULT_OUTPUT, help="Output folder")
@@ -101,7 +110,7 @@ def main():
 
 
 def print_results(output_dir):
-    """Print category counts"""
+    """Print category counts and total from the specified output directory."""
     print("\n" + "="*40)
     print("RESULTS")
     print("="*40)
