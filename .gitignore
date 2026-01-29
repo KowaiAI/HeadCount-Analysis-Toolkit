@@ -1,0 +1,32 @@
+# Photos (don't commit scraped images)
+dc_photos/
+dc_photos_sorted/
+*_photos/
+*_sorted/
+photos/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temp
+*.tmp
+*.bak
