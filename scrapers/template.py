@@ -45,6 +45,16 @@ IMAGE_URL_FILTER = None  # e.g., "mugshot" or "photo"
 # ============================================================
 
 def main():
+    """Scrape images from a specified target URL and save them to a directory.
+    
+    This function sets up a web browser using Selenium, navigates to the
+    TARGET_URL, and attempts to scrape images based on the specified
+    IMAGE_SELECTOR. It handles pagination by clicking a "Next" button or scrolling
+    down the page to load more images. The function also filters image URLs based
+    on IMAGE_URL_FILTER and saves the images to OUTPUT_DIR, ensuring that
+    duplicates are not downloaded. It includes error handling for network requests
+    and pagination actions.
+    """
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     
     # Setup browser
